@@ -30,13 +30,15 @@ SOURCES += \
         mainwindow.cpp \
     qcustomplot.cpp \
     quaternion.cpp \
-    glarea.cpp
+    glarea.cpp \
+    espaceprojectif.cpp
 
 HEADERS += \
         mainwindow.h \
     qcustomplot.h \
     quaternion.h \
-    glarea.h
+    glarea.h \
+    espaceprojectif.h
 
 FORMS += \
         mainwindow.ui

@@ -47,7 +47,7 @@ void Quaternion::rotate(QMatrix4x4 &matrix, float angle, QVector3D axis)
 Quaternion Quaternion::angleAxis(float angle, QVector3D axis) {
 
     QVector3D normalized = axis.normalized();
-    angle *= 0.0174532925f; // convert en radians
+    angle *= 0.0174532925f; // conversion en radians (1° = 1 * M_PI/180)
     angle *= 0.5f; // divisé par 2
     float sinAngle = sinf(angle);
     return Quaternion(cosf(angle),

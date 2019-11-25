@@ -13,6 +13,7 @@
 #include <QOpenGLShaderProgram>
 #include <QOpenGLTexture>
 
+#include "espaceprojectif.h"
 #include "quaternion.h"
 
 class GLArea : public QOpenGLWidget,

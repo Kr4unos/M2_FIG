@@ -187,9 +187,15 @@ void GLArea::paintGL()
 
     // Matrice de vue (caméra)
     QMatrix4x4 viewMatrix;
-    viewMatrix.translate(xPos, yPos, zPos);
+    EspaceProjectif::translate(viewMatrix, {xPos, yPos, zPos});
 
-    // Quaternion
+    /* ESPACE PROJECTIF (COORDONNEES HOMOGENES)
+    EspaceProjectif::rotate(viewMatrix, xRot, { 1, 0, 0 });
+    EspaceProjectif::rotate(viewMatrix, yRot, { 0, 1, 0 });
+    EspaceProjectif::rotate(viewMatrix, zRot, { 0, 0, 1 });
+    */
+
+    /* QUATERNION */
     quaternion.rotate(viewMatrix, xRot, { 1, 0, 0 });
     quaternion.rotate(viewMatrix, yRot, { 0, 1, 0 });
     quaternion.rotate(viewMatrix, zRot, { 0, 0, 1 });
@@ -198,7 +204,7 @@ void GLArea::paintGL()
     program_lines->bind();
 
     QMatrix4x4 modelMatrixAxis;
-    modelMatrixAxis.translate(0.0f, 0.0f, 0.0f);
+    EspaceProjectif::translate(modelMatrixAxis, { 0.0f, 0.0f, 0.0f });
     program_lines->setUniformValue("projectionMatrix", projectionMatrix);
     program_lines->setUniformValue("viewMatrix", viewMatrix);
     program_lines->setUniformValue("modelMatrix", modelMatrixAxis);
@@ -221,7 +227,7 @@ void GLArea::paintGL()
     program_lines->bind();
 
     QMatrix4x4 modelMatrixBresenheim;
-    modelMatrixBresenheim.translate(0.0f, 0.0f, 0.0f);
+    EspaceProjectif::translate(modelMatrixBresenheim, { 0.0f, 0.0f, 0.0f });
     program_lines->setUniformValue("projectionMatrix", projectionMatrix);
     program_lines->setUniformValue("viewMatrix", viewMatrix);
     program_lines->setUniformValue("modelMatrix", modelMatrixBresenheim);
