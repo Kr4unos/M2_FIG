@@ -12,20 +12,12 @@ private:
 public:
     Quaternion();
     Quaternion(float w, float x, float y, float z);
-    Quaternion angleAxis(float angle, QVector3D axis);
     QMatrix4x4 toMatrix();
 
-    void translate(QMatrix4x4 &matrix, QVector3D position);
-    void rotate(QMatrix4x4 &matrix, float angle, QVector3D position);
-
-    float getW() const;
-    void setW(float value);
-    float getX() const;
-    void setX(float value);
-    float getY() const;
-    void setY(float value);
-    float getZ() const;
-    void setZ(float value);
+    static void translate(QMatrix4x4 &matrix, QVector3D position);
+    static void rotate(QMatrix4x4 &matrix, float angle, QVector3D position);
+    static Quaternion angleAxis(float angle, QVector3D axis);
+    static QMatrix4x4 mult(QMatrix4x4 matrix1, QMatrix4x4 matrix2);
 };
 
 #endif // QUATERNION_H

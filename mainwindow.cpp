@@ -18,25 +18,6 @@ MainWindow::MainWindow(QWidget *parent) :
     algoStep->setVisible(false);
 }
 
-bool MainWindow::Bresenham(int x0, int y0, int x1, int y1, QVector<double> *resultX, QVector<double> *resultY)
-{
-    int dx = x1 - x0;
-    int dy = y1 - y0;
-    if(0 > dy || dy > dx) return false;
-    int k = 2*dy-dx;
-    int y = y0;
-    for(int x = x0; x <= x1; ++x){
-        resultX->push_back(x);
-        resultY->push_back(y);
-        if(k > 0){
-            ++y;
-            k -= 2*dx;
-        }
-        k += 2*dy;
-    }
-    if(y == y1) return true;
-    return false;
-}
 void MainWindow::BresenhamComplete(int x1, int y1, int x2, int y2, QVector<double> *resultX, QVector<double> *resultY){
     int dx, dy;
     if( (dx = x2 - x1) != 0 ){

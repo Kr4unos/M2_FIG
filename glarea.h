@@ -52,7 +52,6 @@ private:
     float xPos = 0.0f,  yPos = 0.0f, zPos = -20.0f;
     float windowRatio = 1.0f;
     QPoint lastPos;
-    Quaternion quaternion;
 
     QOpenGLShaderProgram *program_lines;
     std::vector<GLfloat> vertices_box;

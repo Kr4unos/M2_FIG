@@ -9,8 +9,6 @@ class MainWindow : public QMainWindow, private Ui::MainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
-
-    bool Bresenham(int x0, int y0, int x1, int y1, QVector<double> *resultX, QVector<double> *resultY);
     void BresenhamComplete(int x1, int y1, int x2, int y2, QVector<double> *resultX, QVector<double> *resultY);
 
 private:

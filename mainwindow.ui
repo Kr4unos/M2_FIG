@@ -57,7 +57,7 @@
              <item>
               <widget class="QLabel" name="x0_label">
                <property name="text">
-                <string>x0</string>
+                <string>xA</string>
                </property>
               </widget>
              </item>
@@ -78,7 +78,7 @@
              <item>
               <widget class="QLabel" name="y0_label">
                <property name="text">
-                <string>y0</string>
+                <string>yA</string>
                </property>
               </widget>
              </item>
@@ -99,7 +99,7 @@
              <item>
               <widget class="QLabel" name="x1_label">
                <property name="text">
-                <string>x1</string>
+                <string>xB</string>
                </property>
               </widget>
              </item>
@@ -120,7 +120,7 @@
              <item>
               <widget class="QLabel" name="y1_label">
                <property name="text">
-                <string>y1</string>
+                <string>yB</string>
                </property>
               </widget>
              </item>

@@ -77,6 +77,59 @@ void GLArea::makeGLObjects()
         0.0f, 0.0f, 1.0f,
     };
 
+    /*
+    // Version avec grille
+    for(int i = -sizeOfAxis; i <= sizeOfAxis; i++){
+
+        if(i == 0) continue;
+
+        vertices_box.push_back(i);
+        vertices_box.push_back(-sizeOfAxis);
+        vertices_box.push_back(0);
+        rgb_box.push_back(0.5f);
+        rgb_box.push_back(0.5f);
+        rgb_box.push_back(0.5f);
+
+        vertices_box.push_back(i);
+        vertices_box.push_back(sizeOfAxis);
+        vertices_box.push_back(0);
+        rgb_box.push_back(0.5f);
+        rgb_box.push_back(0.5f);
+        rgb_box.push_back(0.5f);
+
+        // Y axis
+        vertices_box.push_back(-sizeOfAxis);
+        vertices_box.push_back(i);
+        vertices_box.push_back(0);
+        rgb_box.push_back(0.5f);
+        rgb_box.push_back(0.5f);
+        rgb_box.push_back(0.5f);
+
+        vertices_box.push_back(sizeOfAxis);
+        vertices_box.push_back(i);
+        vertices_box.push_back(0);
+        rgb_box.push_back(0.5f);
+        rgb_box.push_back(0.5f);
+        rgb_box.push_back(0.5f);
+
+        // Z axis
+        vertices_box.push_back(0);
+        vertices_box.push_back(-sizeOfAxis);
+        vertices_box.push_back(i);
+        rgb_box.push_back(0.5f);
+        rgb_box.push_back(0.5f);
+        rgb_box.push_back(0.5f);
+
+        vertices_box.push_back(0);
+        vertices_box.push_back(sizeOfAxis);
+        vertices_box.push_back(i);
+        rgb_box.push_back(0.5f);
+        rgb_box.push_back(0.5f);
+        rgb_box.push_back(0.5f);
+
+    }
+*/
+    // Version avec axes seulement
     for(int i = -sizeOfAxis; i <= sizeOfAxis; i++){
 
         if(i == 0) continue;
@@ -126,6 +179,7 @@ void GLArea::makeGLObjects()
         rgb_box.push_back(0);
         rgb_box.push_back(1);
     }
+
 
     QVector<GLfloat> vertData_axis;
     for (unsigned int i = 0; i < static_cast<unsigned int>(6+(sizeOfAxis*6*2)+2); ++i) {
@@ -196,9 +250,9 @@ void GLArea::paintGL()
     */
 
     /* QUATERNION */
-    quaternion.rotate(viewMatrix, xRot, { 1, 0, 0 });
-    quaternion.rotate(viewMatrix, yRot, { 0, 1, 0 });
-    quaternion.rotate(viewMatrix, zRot, { 0, 0, 1 });
+    Quaternion::rotate(viewMatrix, xRot, { 1, 0, 0 });
+    Quaternion::rotate(viewMatrix, yRot, { 0, 1, 0 });
+    Quaternion::rotate(viewMatrix, zRot, { 0, 0, 1 });
 
     vbo_axis.bind();
     program_lines->bind();
